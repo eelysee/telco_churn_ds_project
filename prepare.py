@@ -1,18 +1,18 @@
+import re
 
 # SQL code for all churn data
-'''
 
-SELECT *
-FROM customers
-LEFT JOIN contract_types ON customers.contract_type_id = contract_types.contract_type_id
-LEFT JOIN internet_service_types ON customers.internet_service_type_id = internet_service_types.internet_service_type_id
-LEFT JOIN payment_types ON customers.payment_type_id = payment_types.payment_type_id
-LEFT JOIN customer_churn ON customers.customer_id = customer_churn.customer_id
-LEFT JOIN customer_contracts ON customers.customer_id = customer_contracts.customer_id
-LEFT JOIN customer_details ON customers.customer_id = customer_details.customer_id
-LEFT JOIN customer_payments ON customers.customer_id = customer_payments.customer_id
-LEFT JOIN customer_signups ON customers.customer_id = customer_signups.customer_id
-LEFT JOIN customer_subscriptions ON customers.customer_id = customer_subscriptions.customer_id
-;
-
-'''
+def prep_telco(telco):
+    # drops all duplicate columns
+    for i in telco.columns:
+        if re.search(r'\d$',i):
+            telco.drop(i, axis = 1, inplace = True)
+            
+    # drops redundant columns in favor of their numerical or boolean counterparts. 
+    # drop churn month becuse all values are the same.
+    telco.drop(columns = ['payment_type', 'customer_id', 'contract_type', 'internet_service_type', 
+                          'churn_month', 'signup_date'], inplace = True)
+    
+    telco.rename(columns = {'senior_citizen': 'senior', 'internet_service_type_id' :'internet_type', 
+                     'contract_type_id': 'contract_type'} , inplace = True)
+    return telco
