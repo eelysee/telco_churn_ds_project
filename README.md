@@ -1,6 +1,56 @@
-# telco_churn_ds_project
+# Telco Churn Data Science Project
 
-Churn Down For What?
+# Project Description
+
+Telco Churn is a data set used for training on data analytics and numerous machine learnig and practices.
+
+This project aims to demonstrate proficency in the full data science pipeline including but not limited to:
+ 
+* Data preperation
+* Exploratory analysis
+* Data preprocessing
+* Feature engineering
+* Statistical analysis
+* Predictive modeling
+* Model evaluation
+* Business acumen
+* Effective communication off all findings and insights 
+
+# Project Goal
+
+* Find drivers for customer churn at Telco. Why are customers churning?
+* Construct a ML classification model that accurately predicts customer churn
+* Present your process and findings to the lead data scientist
+
+# Data Dictionary
+
+| Feature | Definition |
+|:--------|:-----------|
+|add_ons| Integer. of how many optional services a customer has.|
+|churn| Bool|
+|White Rating| Rating of the player moving the white pieces using the Glicko-2 rating method for games played on Lichess|
+|Black Rating| Rating of the player moving the white pieces using the Glicko-2 rating method for games played on Lichess|
+|Rating Difference| The difference in rating between the players in the game|
+|Game Rating| The average rating of the two players in the game|
+|Lower Rated White| True or False, The lower rated player is moving the white pieces|
+|Opening Name| The name of the opening played in the game|
+|Time Control Group| The amount of time allotted to each player to make their moves, **Standard** (60 min or more), **Rapid** (30 - 15 min), **Blitz** (5 - 3 min), or **Bullet** (2 or less), **Other** (any other time limit)|
+|Upset (Target)| True or False, The lower rated player won the game|
+|Additional Features|Encoded and values for categorical data and scaled versions continuous data|
+
+# Steps to Reproduce
+1) Clone this repo.
+2) Acquire the data from [Kaggle](https://www.kaggle.com/datasnaek/chess)
+3) Put the data in the file containing the cloned repo.
+4) Run notebook.
+
+# Takeaways and Conclusions
+* Upsets occur in 1/3 of games
+* In games where the lower rated player moves first there is a 4% greater chance of an upset
+
+# Recommendations
+* To increase the skill intensity of a game add to the length of time players are able to consider their moves
+
 
 README
 Your README should contain all of the following elements:
@@ -42,3 +92,21 @@ What effect does tenure have on churn?
 What effect does total charges have on churn?
 How do differnt add-ons effect churn?
 Is costomer demographic a predictor of churn?
+
+Final takeaway
+
+Explain the cosst of churn. earlier
+how many people are churngin per month
+
+explain what the predictions and cost savings will be with reduciotn so they can know the budget for such actions
+need to come up with the average of monthly expenses by customer.
+-- either caluculate teh actual nuber of people churned.
+-- the average cost of money saved per month means the total of all churned
+-- look at that number of saved money compounded with growth over a year
+--- woudl need to add on the base of tenure zero per month - the new churn amounts if we are able to capture them all
+-- a good place to add some distributions possibly.
+-- when figuring out how much the budget to make changes or how much discount can be given
+
+We shoudl touch on reservatoin price.
+
+I suggest we do another study on reservatoin price to perhaps raise the cost of the dsl as it is our best feartures. If it does meat 
