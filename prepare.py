@@ -38,15 +38,15 @@ def prep_telco(telco):
     return telco
 
 
-# strat is target feature
-def train_val_test(df, strat, seed = 55):
+# feature == target feature in quotes
+def train_val_test(df, feature, seed = 55):
 
     train, val_test = train_test_split(df, train_size = 0.7,
                                        random_state = seed,
-                                       stratify = df[strat])
+                                       stratify = df[feature])
     
     val, test = train_test_split(val_test, train_size = 0.5,
                                  random_state = seed,
-                                 stratify = val_test[strat])
+                                 stratify = val_test[feature])
     
     return train, val, test
